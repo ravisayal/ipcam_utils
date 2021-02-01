@@ -1,0 +1,42 @@
+# https://stackoverflow.com/questions/19412382/gnuplot-line-types
+
+set datafile separator comma
+set termoption dashed
+set colorsequence default
+
+set xdata time                           # Indicate that x-axis values are time values
+set timefmt "%m/%d/%Y %H:%M:%S"          # Indicate the pattern the time values will be in
+set format x "%H:%M"                     # Set how the dates will be displayed on the plot
+  
+set xrange ["01/31/2021 20:13:57":"02/01/2021 23:59:57"]   # Set x-axis range of values
+set yrange [0:100]                        # Set y-axis range of values
+ 
+set key left top                         # Set lengend location to top-left 
+
+set xtics rotate by -45                  # Rotate dates on x-axis 45deg for cleaner display
+
+set ytics    nomirror
+set y2tics
+
+set ylabel    "Level"
+set y2label   "Temprature"
+
+
+set title 'Battery Data' font ",18" # Set graph title, set title font size to 18
+ 
+
+
+set grid
+set style line 12 lc rgb 'blue' lt 1 lw 2  pi -1 ps 1.0
+set style line 13 lc rgb 'red'  lt 1 lw 1  pi -1 ps 1.0
+
+set grid  xtics ytics mxtics mytics ls 12, ls 13
+set mxtics 8
+set mytics 1
+
+
+set terminal jpeg size 3200,630          # Set the output format to jpeg, set dimensions to 1200x630
+set output './output.jpg'                  # Set output file to output.jpg
+  
+plot 'battery_data.csv' using 1:2 axis x1y1 with linespoints linetype 6 linewidth 3 title 'Level' , \
+     'battery_data.csv' using 1:3 axis x1y2 with linespoints linetype 7 linewidth 3 title 'Temp'
