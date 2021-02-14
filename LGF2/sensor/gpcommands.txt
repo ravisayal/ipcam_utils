@@ -36,7 +36,7 @@ set mxtics 6
 set mytics 1
 set my2tics 1
 
-set terminal jpeg size 4800,600          # Set the output format to jpeg, set dimensions to 1200x630
+set terminal jpeg size 3600,600          # Set the output format to jpeg, set dimensions to 1200x630
 set output './output.jpg'                  # Set output file to output.jpg
   
 plot 'battery_data.csv' using 1:2 axis x1y1 with linespoints linetype 6 linewidth 3 title 'Level' , \
