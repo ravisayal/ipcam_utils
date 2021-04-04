@@ -10,7 +10,8 @@ echo "script_curr_dir:"$script_curr_dir
 echo "script_call_string:"$script_call_string
 
 
-now=$(date +"%m/%d/%Y %H:%M:%S");  \
+now=$(date +"%m/%d/%Y %H:%M:%S");  
+echo "Current Time: "$now
 # fetch the battery level and save in bl variable \
 bl=`curl 'http://192.168.1.210:8080/sensors.json?from=1610841254704&sense=battery_level' \
   -H 'Connection: keep-alive' \
@@ -20,9 +21,12 @@ bl=`curl 'http://192.168.1.210:8080/sensors.json?from=1610841254704&sense=batter
   -H 'Referer: http://192.168.1.210:8080/sensors.html' \
   -H 'Accept-Language: en-US,en;q=0.9' \
   --compressed \
-  --insecure` ; \
- bl="${bl:53:8}" ; \
- bl=`echo $bl | tr -dc '[:alnum:].'` ;\
+  --insecure` ; 
+
+ bl="${bl:53:8}" ; 
+ bl=`echo $bl | tr -dc '[:alnum:].'` 
+
+
 # fetch the battery temp and save in bt variable \
 bt=`curl 'http://192.168.1.210:8080/sensors.json?from=1612142935259&sense=battery_temp' \
   -H 'Connection: keep-alive' \
@@ -32,7 +36,8 @@ bt=`curl 'http://192.168.1.210:8080/sensors.json?from=1612142935259&sense=batter
   -H 'Referer: http://192.168.1.104:8080/sensors.html' \
   -H 'Accept-Language: en-US,en;q=0.9' \
   --compressed \
-  --insecure` ; \
- bt="${bt:52:8}" ; \
- bt=`echo $bt | tr -dc '[:alnum:].'` ;\
- echo "$now"",""$bl"",""$bt" >> $script_curr_dir/battery_data.csv ; 
+  --insecure` ; 
+ bt="${bt:52:8}" ; 
+ bt=`echo $bt | tr -dc '[:alnum:].'` 
+
+echo "$now"",""$bl"",""$bt" >> $script_curr_dir/battery_data.csv ; 
