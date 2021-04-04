@@ -42,6 +42,8 @@ bt=`curl 'http://192.168.1.210:8080/sensors.json?from=1612142935259&sense=batter
 
 echo "$now"",""$bl"",""$bt" >> $script_curr_dir/battery_data.csv ; 
 
+
+#adding git sync logic
 git add $script_curr_dir/battery_data.csv
 git commit -m "Saving $progname as of $now"
 git push
