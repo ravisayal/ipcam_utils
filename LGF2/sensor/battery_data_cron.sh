@@ -44,6 +44,7 @@ echo "$now"",""$bl"",""$bt" >> $script_curr_dir/battery_data.csv ;
 
 
 #adding git sync logic
+cd $script_curr_dir
 git add $script_curr_dir/battery_data.csv
 git commit -m "Saving $progname as of $now"
 git push
