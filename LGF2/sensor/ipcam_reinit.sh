@@ -1,4 +1,15 @@
 #!/bin/bash
+progname=$(basename $0)
+script_call_dir=${0%$progname}
+script_curr_dir=${script_call_dir:-$pwd/}
+script_call_string="$progname $@"
+
+echo "progname:"$progname
+echo "script_call_dir:"$script_call_dir
+echo "script_curr_dir:"$script_curr_dir
+echo "script_call_string:"$script_call_string
+
+
 
 curl 'http://192.168.1.210:8080/settings/overlay?set=on' 
 #curl 'http://192.168.1.210:8080/settings/mirror_flip?set=mirror,flip' 
