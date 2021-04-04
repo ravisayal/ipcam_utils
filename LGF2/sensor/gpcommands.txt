@@ -6,10 +6,12 @@ set colorsequence default
 
 set xdata time                           # Indicate that x-axis values are time values
 set timefmt "%m/%d/%Y %H:%M:%S"          # Indicate the pattern the time values will be in
-set format x "%H:%M"                     # Set how the dates will be displayed on the plot
-  
-set xrange ["01/31/2021 20:13:57":"02/15/2021 23:59:57"]   # Set x-axis range of values
+#set format x "%H:%M"                     # Set how the dates will be displayed on the plot
+set format x "%m/%d"                     # Set how the dates will be displayed on the plot
+   
+#set xrange ["01/31/2021 20:13:57":"03/24/2021 23:59:57"]   # Set x-axis range of values
 set yrange [0:100]                        # Set y-axis range of values
+set y2range [20:50]                        # Set y-axis range of values
  
 set key left top                         # Set lengend location to top-left 
 
@@ -36,7 +38,7 @@ set mxtics 6
 set mytics 1
 set my2tics 1
 
-set terminal jpeg size 3600,600          # Set the output format to jpeg, set dimensions to 1200x630
+set terminal jpeg size 28800,1200          # Set the output format to jpeg, set dimensions to 1200x630
 set output './output.jpg'                  # Set output file to output.jpg
   
 plot 'battery_data.csv' using 1:2 axis x1y1 with linespoints linetype 6 linewidth 3 title 'Level' , \
