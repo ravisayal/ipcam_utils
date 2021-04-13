@@ -13,8 +13,8 @@ echo "script_call_string:"$script_call_string
 
 curl 'http://192.168.1.210:8080/settings/overlay?set=on' 
 #curl 'http://192.168.1.210:8080/settings/mirror_flip?set=mirror,flip' 
-#curl 'http://192.168.1.210:8080/settings/video_size?set=352x288' 
-curl 'http://192.168.1.210:8080/settings/video_size?set=640x480' 
+curl 'http://192.168.1.210:8080/settings/video_size?set=352x288' 
+#curl 'http://192.168.1.210:8080/settings/video_size?set=640x480' 
 
 
 curl 'http://192.168.1.210:8080/settings/overlay?set=on' 
